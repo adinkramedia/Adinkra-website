@@ -1,0 +1,235 @@
+* { 
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Kumbh Sans', sans-serif;
+  }
+  
+  body {
+    background-color: #000000;
+    color: #FBE5B6;
+  }
+  
+  /* NAVBAR STYLES */
+  
+  .navbar {
+    background: #000;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.6);
+  }
+  
+  .navbar__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 50px;
+  }
+  
+  #navbar__logo {
+    color: #F8B735;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .navbar__menu {
+    display: flex;
+    list-style: none;
+    text-align: center;
+  }
+  
+  .navbar__item {
+    height: 80px;
+  }
+  
+  .navbar__links {
+    color: #FBE5B6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 100%;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar__links:hover {
+    color: #F8B735;
+  }
+  
+  .navbar__btn {
+    display: flex;
+    align-items: center;
+  }
+  
+  .button {
+    background-color: #F38218;
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #d96d0c;
+  }
+  
+  .navbar__toggle {
+    display: none;
+    cursor: pointer;
+  }
+  
+  .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: #fff;
+  }
+  
+  /* HERO BANNER STYLES */
+  
+  .hero-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #121212;
+    color: #FBE5B6;
+    min-height: 100vh;
+    padding: 3rem 1.5rem;
+    text-align: center;
+    position: relative;
+    z-index: 0;
+  }
+  
+  .hero-banner__content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .hero-banner h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    color: #F8B735;
+  }
+  
+  .hero-banner p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    color: #FBE5B6;
+  }
+  
+  .hero-banner__btn {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.75rem 1.75rem;
+    background-color: #F38218;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .hero-banner__btn:hover {
+    background-color: #d96d0c;
+    transform: scale(1.05);
+  }
+  
+  /* REUSABLE SECTION STYLES */
+  
+  .section {
+    padding: 4rem 1.5rem;
+    text-align: center;
+    background-color: #000;
+  }
+  
+  .section h2 {
+    color: #F8B735;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .section p {
+    font-size: 1.1rem;
+    color: #FBE5B6;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  /* MOBILE MENU STYLES */
+  
+  @media screen and (max-width: 960px) {
+    .navbar__toggle {
+      display: block;
+    }
+  
+    .navbar__menu {
+      position: absolute;
+      top: -1000px;
+      left: 0;
+      width: 100%;
+      background-color: #000;
+      display: grid;
+      grid-template-columns: 1fr;
+      text-align: center;
+      transition: top 0.5s ease;
+      z-index: 1;
+    }
+  
+    .navbar__menu.active {
+      top: 80px;
+    }
+  
+    .navbar__item {
+      width: 100%;
+    }
+  
+    .navbar__links {
+      display: block;
+      width: 100%;
+      padding: 20px 0;
+    }
+  
+    .navbar__btn {
+      padding: 20px 0;
+      width: 100%;
+    }
+  
+    .button {
+      width: 80%;
+      margin: 0 auto;
+    }
+  
+    /* Hamburger animation */
+    #mobile-menu.is-active .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+  
+    #mobile-menu.is-active .bar:nth-child(2) {
+      opacity: 0;
+    }
+  
+    #mobile-menu.is-active .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
+  
