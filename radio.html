@@ -9,7 +9,6 @@
 </head>
 <body>
   <!-- Navigation -->
-  <!-- (same as in index.html) -->
   <nav class="navbar">
     <div class="navbar__container">
       <a href="index.html" id="navbar__logo">Adinkra Media</a>
@@ -32,10 +31,14 @@
     <div class="hero-banner__content">
       <h1>Radio Adinkra</h1>
       <p>Experience the soul of Africa through sound. Tune in to live music, exclusive artist drops, cultural podcasts, and spiritual sounds from across the continent.</p>
-      <audio controls>
-        <source src="assets/audio/stream.mp3" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
+
+      <!-- Caster.fm Embedded Player -->
+      <div class="cstrEmbed" data-type="newStreamPlayer" data-publicToken="22e25494-e3a5-44bc-83ce-e44713c69d64" data-theme="light" data-color="6C2BDD" data-channelId="" data-rendered="false">
+        <a href="https://www.caster.fm">Shoutcast Hosting</a>
+        <a href="https://www.caster.fm">Stream Hosting</a>
+        <a href="https://www.caster.fm">Radio Server Hosting</a>
+      </div>
+      <script src="//cdn.cloud.caster.fm//widgets/embed.js"></script>
     </div>
   </section>
 
