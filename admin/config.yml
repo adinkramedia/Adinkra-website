@@ -1,16 +1,16 @@
 backend:
   name: git-gateway
-  branch: main  # Change to 'master' if your repository uses that
+  branch: main
 
-media_folder: "images/uploads"        # Where uploaded images are stored
-public_folder: "/images/uploads"      # Public URL path for images
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
 
 collections:
   - name: "news"
     label: "Trending African News"
-    folder: "news-data"               # Folder where news will be stored as .md files
+    folder: "news-data"
     create: true
-    slug: "{{slug}}"                  # File name based on title slug
+    slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Summary", name: "summary", widget: "text" }
