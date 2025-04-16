@@ -2,19 +2,11 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Content Manager | Adinkra Media</title>
-
-    <!-- Netlify Identity Widget (for login) -->
+    <title>Adinkra Media CMS</title>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
-    <!-- Netlify CMS -->
     <script src="https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js"></script>
   </head>
   <body>
-    <!-- This is required for Netlify CMS to mount -->
-    <div id="nc-root"></div>
-
-    <!-- Optional: Auto login redirection after login -->
     <script>
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("init", user => {
