@@ -6,9 +6,9 @@ export default defineStackbitConfig({
   contentSources: [
     new ContentfulContentSource({
       spaceId: process.env.CONTENTFUL_SPACE_ID!,
-      accessToken: process.env.CONTENTFUL_MANAGEMENT_TOKEN!,
+      accessToken: process.env.CONTENTFUL_ENVIRONMENT!,
       previewToken: process.env.CONTENTFUL_PREVIEW_TOKEN!,
-      environment: process.env.CONTENTFUL_ENVIRONMENT!,
+      environment: process.env.CONTENTFUL_MANAGEMENR_TOKEN!,
       models: [
         {
           name: 'Page',
