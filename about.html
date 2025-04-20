@@ -5,10 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About | Adinkra Media</title>
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/favicon.png" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/favicon.png" />
 
+  <!-- Main site styles -->
   <link rel="stylesheet" href="styles.css"/>
+  <!-- New About Page Styles -->
+  <link rel="stylesheet" href="about.css"/>
+
   <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet"/>
 </head>
 <body>
@@ -25,27 +29,63 @@
         <li class="navbar__item"><a href="news.html" class="navbar__links">African Trending News</a></li>
         <li class="navbar__item"><a href="tv.html" class="navbar__links">Adinkra TV</a></li>
         <li class="navbar__item"><a href="about.html" class="navbar__links">About</a></li>
-        
       </ul>
     </div>
   </nav>
 
+  <!-- Hero Section -->
   <section class="hero-banner">
     <div class="hero-banner__content">
       <h1>About Adinkra Media</h1>
-      <p><strong>Adinkra Media</strong> is a dynamic Pan-African multimedia platform dedicated to sound, storytelling, and cultural preservation. We specialize in audio production, music composition, film scoring, and sound design, creating immersive sonic experiences that bring projects to life. Beyond production, Adinkra Media is also home to Radio Adinkra, a space where African voices, music, and stories areamplified. Our platform features African Trending News, and thought-provoking discussions that celebrate the richness of the continent.</audio></p>
+      <p><strong>Adinkra Media</strong> is a dynamic Pan-African multimedia platform dedicated to sound, storytelling, and cultural preservation. We specialize in audio production, music composition, film scoring, and sound design, creating immersive sonic experiences that bring projects to life. Beyond production, Adinkra Media is also home to Radio Adinkra, a space where African voices, music, and stories are amplified. Our platform features African Trending News, and thought-provoking discussions that celebrate the richness of the continent.</p>
 
       <h2>Services</h2>
-      <ul>
+      <ul class="services-list">
         <li>🎧 Sound Design & Audio Post-Production</li>
         <li>🎼 Music Composition & Film Scoring</li>
-        <li>📡 Radio & Website adertising placements</li>
+        <li>📡 Radio & Website Advertising Placements</li>
       </ul>
 
       <h2 id="contact">Contact</h2>
-      <p>Email: <a href="mailto:adinkraaudio@outlook.com">adinkraaudio@outlook.com</a></p>
-      <p>Phone: 072 076 1243</p>
-      <p>Location: Johannesburg, South Africa</p>
+      <div class="contact-info">
+        <p>Email: <a href="mailto:adinkraaudio@outlook.com">adinkraaudio@outlook.com</a></p>
+        <p>Phone: 072 076 1243</p>
+        <p>Location: Johannesburg, South Africa</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Music Section -->
+  <section class="featured-music">
+    <div class="featured-music__content">
+      <h2>🎵 Featured Music</h2>
+      <p>Listen to some of the original compositions and productions from Adinkra Media.</p>
+
+      <div class="music-grid">
+        <div class="music-card">
+          <h3>Spirit of the Drums</h3>
+          <audio controls>
+            <source src="music/spirit-of-the-drums.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+
+        <div class="music-card">
+          <h3>Sunset Over Accra</h3>
+          <audio controls>
+            <source src="music/sunset-over-accra.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+
+        <div class="music-card">
+          <h3>Echoes of the Savannah</h3>
+          <audio controls>
+            <source src="music/echoes-of-the-savannah.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      </div>
     </div>
   </section>
 

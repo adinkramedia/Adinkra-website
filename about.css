@@ -1,0 +1,103 @@
+/* ABOUT PAGE SPECIFIC STYLES */
+
+/* Services List */
+.services-list {
+    list-style: none;
+    margin-top: 1rem;
+    padding-left: 0;
+  }
+  
+  .services-list li {
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+    color: #FBE5B6;
+  }
+  
+  /* Contact Info */
+  .contact-info p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+    color: #FBE5B6;
+  }
+  
+  .contact-info a {
+    color: #F8B735;
+    text-decoration: none;
+  }
+  
+  .contact-info a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Featured Music Section */
+  .featured-music {
+    padding: 4rem 1.5rem;
+    background-color: rgba(0, 0, 0, 0.85);
+    text-align: center;
+  }
+  
+  .featured-music__content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .featured-music h2 {
+    font-size: 2.5rem;
+    color: #F8B735;
+    margin-bottom: 1rem;
+  }
+  
+  .featured-music p {
+    font-size: 1.2rem;
+    color: #FBE5B6;
+    margin-bottom: 2rem;
+  }
+  
+  /* Music Cards Grid */
+  .music-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+  
+  .music-card {
+    background: #194138;
+    border-radius: 12px;
+    padding: 2rem 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  
+  .music-card:hover {
+    transform: translateY(-10px);
+    background: #235b4d;
+  }
+  
+  .music-card h3 {
+    font-size: 1.5rem;
+    color: #F8B735;
+    margin-bottom: 1rem;
+  }
+  
+  .music-card audio {
+    width: 100%;
+    outline: none;
+  }
+  
+  /* Audio Controls Customize */
+  audio::-webkit-media-controls-panel {
+    background-color: #2C6E63;
+    border-radius: 8px;
+  }
+  
+  /* Responsive Adjustments */
+  @media screen and (max-width: 768px) {
+    .featured-music {
+      padding: 3rem 1rem;
+    }
+  
+    .music-card {
+      padding: 1.5rem 1rem;
+    }
+  }
+  

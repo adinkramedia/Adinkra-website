@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Trending News | Adinkra Media</title>
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/favicon.png" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/favicon.png" />
 
-  <link rel="stylesheet" href="styles.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet"/>
+  <!-- Main Site Styles -->
+  <link rel="stylesheet" href="styles.css" />
 
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2302585712980431"
+  <!-- News Specific Styles -->
+  <link rel="stylesheet" href="news.css" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet" />
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2302585712980431"
     crossorigin="anonymous"></script>
-
-    
 </head>
 <body>
   <!-- Navigation -->
-  <!-- (same nav as above) -->
   <nav class="navbar">
     <div class="navbar__container">
       <a href="index.html" id="navbar__logo">Adinkra Media</a>
@@ -32,24 +35,142 @@
         <li class="navbar__item"><a href="news.html" class="navbar__links">African Trending News</a></li>
         <li class="navbar__item"><a href="tv.html" class="navbar__links">Adinkra TV</a></li>
         <li class="navbar__item"><a href="about.html" class="navbar__links">About</a></li>
-        
       </ul>
     </div>
   </nav>
 
+  <!-- Hero Section -->
   <section class="hero-banner">
     <div class="hero-banner__content">
-      <h1>Afican Trending News</h1>
+      <h1>African Trending News</h1>
       <p>Catch the latest headlines from across Africa. From innovation and politics to music and sport, we bring you news that shapes the culture.</p>
-      <!-- You can replace these with real news articles -->
-      <ul>
-        <li><strong>Ghana launches Afrobeats initiative to promote cultural exports</strong></li>
-        <li><strong>Nigeria leads West Africa in tech startup funding</strong></li>
-        <li><strong>Kenyan filmmakers shine at international film festival</strong></li>
-      </ul>
     </div>
   </section>
 
+  <!-- News Section -->
+  <section class="section" id="news">
+    <h2>Latest Stories</h2>
+    <div class="news-container">
+      
+      <!-- News Card 1 -->
+      <div class="news-card fade-in">
+        <img src="images/ghana-afrobeats.jpg" alt="Ghana Afrobeats" class="news-image">
+        <div class="news-card-content">
+          <h3>Ghana Launches Afrobeats Initiative</h3>
+          <p>Ghana sets the stage to become a cultural powerhouse with a major Afrobeats export initiative.</p>
+        </div>
+      </div>
+
+      <!-- News Card 2 -->
+      <div class="news-card fade-in">
+        <img src="images/nigeria-tech.jpg" alt="Nigeria Tech" class="news-image">
+        <div class="news-card-content">
+          <h3>Nigeria Leads in Tech Startup Funding</h3>
+          <p>Startups across Lagos and Abuja receive record-breaking investments, fueling Africa’s innovation scene.</p>
+        </div>
+      </div>
+
+      <!-- News Card 3 -->
+      <div class="news-card fade-in">
+        <img src="images/kenya-film.jpg" alt="Kenya Filmmakers" class="news-image">
+        <div class="news-card-content">
+          <h3>Kenyan Filmmakers Shine Globally</h3>
+          <p>Kenyan cinema gets the spotlight at global film festivals with stories highlighting Africa’s diversity.</p>
+        </div>
+      </div>
+
+      <!-- News Card 4 -->
+      <div class="news-card fade-in">
+        <img src="images/egypt-tourism.jpg" alt="Egypt Tourism" class="news-image">
+        <div class="news-card-content">
+          <h3>Egypt Tourism Bounces Back</h3>
+          <p>Egypt's historic sites attract millions as tourism makes a strong recovery post-pandemic.</p>
+        </div>
+      </div>
+
+      <!-- News Card 5 -->
+      <div class="news-card fade-in">
+        <img src="images/southafrica-fashion.jpg" alt="South Africa Fashion" class="news-image">
+        <div class="news-card-content">
+          <h3>South Africa Sets Fashion Trends</h3>
+          <p>Designers from Cape Town and Johannesburg redefine African style for the global stage.</p>
+        </div>
+      </div>
+
+      <!-- News Card 6 -->
+      <div class="news-card fade-in">
+        <img src="images/tanzania-conservation.jpg" alt="Tanzania Conservation" class="news-image">
+        <div class="news-card-content">
+          <h3>Tanzania Expands Conservation Efforts</h3>
+          <p>New initiatives aim to protect wildlife and promote sustainable tourism across the Serengeti.</p>
+        </div>
+      </div>
+
+      <!-- News Card 7 -->
+      <div class="news-card fade-in">
+        <img src="images/ethiopia-coffee.jpg" alt="Ethiopia Coffee" class="news-image">
+        <div class="news-card-content">
+          <h3>Ethiopian Coffee Demand Surges</h3>
+          <p>Global appreciation for Ethiopian coffee beans boosts local economies and fair trade initiatives.</p>
+        </div>
+      </div>
+
+      <!-- News Card 8 -->
+      <div class="news-card fade-in">
+        <img src="images/morocco-solar.jpg" alt="Morocco Solar Energy" class="news-image">
+        <div class="news-card-content">
+          <h3>Morocco Leads in Solar Energy</h3>
+          <p>Morocco’s massive solar farms set new standards for renewable energy in Africa.</p>
+        </div>
+      </div>
+
+      <!-- News Card 9 -->
+      <div class="news-card fade-in">
+        <img src="images/uganda-education.jpg" alt="Uganda Education" class="news-image">
+        <div class="news-card-content">
+          <h3>Uganda Improves Access to Education</h3>
+          <p>Innovative programs help bridge the gap and bring quality education to rural areas in Uganda.</p>
+        </div>
+      </div>
+
+      <!-- News Card 10 -->
+      <div class="news-card fade-in">
+        <img src="images/senegal-music.jpg" alt="Senegal Music" class="news-image">
+        <div class="news-card-content">
+          <h3>Senegal’s Music Scene Thrives</h3>
+          <p>From Dakar to the world, Senegalese artists are taking center stage with their vibrant sounds.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- JS -->
   <script src="app.js"></script>
+
+  <!-- Scroll Animation -->
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
+
+    const appearOptions = {
+      threshold: 0.2,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          return;
+        } else {
+          entry.target.classList.add('appear');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
 </body>
 </html>
