@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Adinkra Media - Home</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet">
 
@@ -11,7 +15,6 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2302585712980431"
      crossorigin="anonymous"></script>
 
-     
 </head>
 <body>
   <!-- Navigation (common across pages) -->
@@ -66,10 +69,12 @@
   </div>
 
   <script src="app.js"></script>
-  
+
   <!-- Identity login initialization (optional, if you want to enable login functionality) -->
   <script>
-    netlifyIdentity.init();
+    if (typeof netlifyIdentity !== 'undefined') {
+      netlifyIdentity.init();
+    }
   </script>
 </body>
 </html>
