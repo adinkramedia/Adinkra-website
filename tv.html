@@ -39,6 +39,20 @@
     .hero-banner__content p {
       margin-bottom: 1rem;
     }
+
+    .next-button {
+      margin-top: 1rem;
+      padding: 10px 20px;
+      background-color: #2C6E63;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .next-button:hover {
+      background-color: #244e47;
+    }
   </style>
 </head>
 <body>
@@ -65,14 +79,56 @@
       <p>Watch African stories come to life. From documentaries to music videos and talk shows, Adinkra TV is your visual passport to the continent.</p>
       
       <div class="video-container">
-        <iframe src="https://www.voaafrica.com/embed/player/0/7753123.html?type=video"
-                scrolling="no"
-                allowfullscreen>
+        <iframe id="videoPlayer"
+          src=""
+          scrolling="no"
+          allowfullscreen>
         </iframe>
       </div>
+
+      <button class="next-button" onclick="nextVideo()">Next Video</button>
     </div>
   </section>
 
-  <script src="app.js"></script>
+  <script>
+    // Burger menu toggle
+    const menu = document.getElementById('mobile-menu');
+    const menuLinks = document.querySelector('.navbar__menu');
+
+    menu.addEventListener('click', () => {
+      menuLinks.classList.toggle('active');
+    });
+
+    // Video playlist logic
+    const videoLinks = [
+      "https://www.voaafrica.com/embed/player/0/8002500.html?type=video",
+      "https://www.voaafrica.com/embed/player/0/7972738.html?type=video",
+      "https://www.voaafrica.com/embed/player/0/7999217.html?type=video",
+      "https://www.voaafrica.com/embed/player/0/7002879.html?type=video",
+      "https://www.voaafrica.com/embed/player/0/7002880.html?type=video",
+      "https://archive.org/embed/ds-store_202104",
+      "https://archive.org/embed/upenn-f16-4019_1973_Dances_of_Southern_Africa"
+    ];
+
+    let currentVideoIndex = 0;
+    const videoPlayer = document.getElementById("videoPlayer");
+
+    function loadVideo(index) {
+      if (index >= videoLinks.length) {
+        currentVideoIndex = 0;
+      }
+      videoPlayer.src = videoLinks[currentVideoIndex];
+    }
+
+    function nextVideo() {
+      currentVideoIndex++;
+      if (currentVideoIndex >= videoLinks.length) currentVideoIndex = 0;
+      loadVideo(currentVideoIndex);
+    }
+
+    window.onload = function () {
+      loadVideo(currentVideoIndex);
+    };
+  </script>
 </body>
 </html>
