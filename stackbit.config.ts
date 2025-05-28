@@ -1,34 +1,26 @@
-// stackbit.config.ts
-import { defineStackbitConfig } from "@stackbit/types"; // Ensure you're importing defineStackbitConfig
-import { ContentfulContentSource } from '@stackbit/cms-contentful';
+import { defineStackbitConfig } from "@stackbit/types";
+import { GitContentSource } from "@stackbit/cms-git";
 
 export default defineStackbitConfig({
+  stackbitVersion: '^0.6.0',
   contentSources: [
-    new ContentfulContentSource({
-      spaceId: process.env.CONTENTFUL_SPACE_ID!,  // Correct usage of environment variables
-      accessToken: process.env.CONTENTFUL_MANAGEMENT_TOKEN!,  // Corrected from CONTENTFUL_ENVIRONMENT
-      previewToken: process.env.CONTENTFUL_PREVIEW_TOKEN!,
-      environment: process.env.CONTENTFUL_ENVIRONMENT!,  // Corrected 'MANAGEMENR' to 'ENVIRONMENT'
+    new GitContentSource({
+      rootPath: __dirname,
+      contentDirs: ["content"],
       models: [
         {
-          name: 'Page',
-          type: 'page',
-          urlPath: '/{slug}',  // Slug pattern for pages
-        },
-        {
-          name: 'Blog',
-          type: 'page',
-          urlPath: '/news/{slug}',  // Slug pattern for blog posts
-        },
+          name: "newsPost",
+          label: "News Post",
+          type: "page",
+          filePathPattern: "news/{slug}.md",
+          urlPath: "/news.html#{slug}",
+          fields: [
+            { name: "title", label: "Title", type: "string", required: true },
+            { name: "summary", label: "Summary", type: "text" },
+            { name: "image", label: "Image", type: "image" }
+          ]
+        }
       ],
     }),
-  ],
-  siteMap: ({ documents }) => {
-    return documents.map((doc) => ({
-      stableId: doc.id,
-      urlPath: `/${doc.slug}`,
-      document: doc,
-      isHomePage: doc.slug === 'index', // Adjust for your homepage slug
-    }));
-  },
+  ]
 });
