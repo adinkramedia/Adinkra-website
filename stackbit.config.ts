@@ -1,35 +1,35 @@
-import { defineStackbitConfig } from "@stackbit/types";
+
+import { defineStackbitConfig, SiteMapEntry } from "@stackbit/types";
 import { GitContentSource } from "@stackbit/cms-git";
 
 export default defineStackbitConfig({
-  stackbitVersion: '^0.6.0',
   contentSources: [
     new GitContentSource({
       rootPath: __dirname,
-      contentDirs: ["content"],
+      contentDirs: ["content/news"],
       models: [
         {
-          name: "newsPost",
-          label: "News Post",
-          type: "page",
-          filePathPattern: "news/{slug}.md",
+          name: "AfricanNews",           // Must match `modelName` in .md
+          type: "page",                  // Required for sitemap
+          filePath: "content/news/{slug}.md", // Path format
+          urlPath: "/news/{slug}",       // Preview URL format
           fields: [
-            { name: "title", label: "Title", type: "string", required: true },
-            { name: "summary", label: "Summary", type: "text" },
-            { name: "image", label: "Image", type: "image" }
+            { name: "title", type: "string", required: true },
+            { name: "summary", type: "text" },
+            { name: "image", type: "image" },
+            { name: "body", type: "markdown" }
           ]
         }
-      ],
-    }),
+      ]
+    })
   ],
-  siteMap: async ({ contentSource }) => {
-    const entries = await contentSource.getContentEntries("newsPost");
-
-    return entries.map((entry) => ({
-      // Each news post will be linked to /news.html#{slug}
-      urlPath: `/news.html#${entry.slug}`,
-      modelName: "newsPost",
-      entryId: entry.id,
-    }));
-  }
+  siteMap: ({ documents }) =>
+    documents
+      .filter(doc => doc.modelName === "AfricanNews") // Make sure it matches
+      .map((doc) => ({
+        stableId: doc.id,
+        urlPath: `/news/${doc.slug}`,
+        document: doc,
+        isHomePage: false,
+      })) as SiteMapEntry[]
 });
