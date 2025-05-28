@@ -27,9 +27,9 @@ export default defineStackbitConfig({
       .filter((doc) => doc.modelName === "Page")
       .map((doc) => ({
         stableId: doc.id,
-        urlPath: `/${doc.slug}`,
+        urlPath: `/${doc.fields.slug}`,
         document: doc,
-        isHomePage: doc.slug === "index"
+        isHomePage: doc.fields.slug === "index"
       })) as SiteMapEntry[];
   }
 });
