@@ -13,7 +13,6 @@ export default defineStackbitConfig({
           label: "News Post",
           type: "page",
           filePathPattern: "news/{slug}.md",
-          urlPath: "/news.html#{slug}",
           fields: [
             { name: "title", label: "Title", type: "string", required: true },
             { name: "summary", label: "Summary", type: "text" },
@@ -22,5 +21,15 @@ export default defineStackbitConfig({
         }
       ],
     }),
-  ]
+  ],
+  siteMap: async ({ contentSource }) => {
+    const entries = await contentSource.getContentEntries("newsPost");
+
+    return entries.map((entry) => ({
+      // Each news post will be linked to /news.html#{slug}
+      urlPath: `/news.html#${entry.slug}`,
+      modelName: "newsPost",
+      entryId: entry.id,
+    }));
+  }
 });
