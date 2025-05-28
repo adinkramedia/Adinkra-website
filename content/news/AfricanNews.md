@@ -1,5 +1,8 @@
 ---
-title: "Ghana Launches Afrobeats Initiative"
-summary: "Ghana sets the stage to become a cultural powerhouse with a major Afrobeats export initiative."
-image: "/images/ghana-afrobeats.jpg"
+modelName: AfricanNews
+title: "African News"
+slug: "african-news"
+summary: "Latest updates across Africa."
+image: "/images/africa-news.jpg"
 ---
+This is the full article body content.

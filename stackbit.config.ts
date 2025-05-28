@@ -2,6 +2,7 @@ import { defineStackbitConfig } from "@stackbit/types";
 import { GitContentSource } from "@stackbit/cms-git";
 
 export default defineStackbitConfig({
+  stackbitVersion: '^0.6.0',
   contentSources: [
     new GitContentSource({
       rootPath: __dirname,
@@ -21,6 +22,8 @@ export default defineStackbitConfig({
       ],
     }),
   ],
+  siteMap: async ({ contentSource }) => {
+    const entries = await contentSource.getContentEntries("newsPost");
 
     return entries.map((entry) => ({
       // Each news post will be linked to /news.html#{slug}
