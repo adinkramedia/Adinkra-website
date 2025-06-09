@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Adinkra TV</title>
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/favicon.png" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/favicon.png" />
 
   <link rel="stylesheet" href="styles.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet"/>
@@ -20,12 +20,13 @@
       margin-top: 1.5rem;
     }
 
-    .video-container video {
+    .video-container iframe {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
+      border: 0;
       border-radius: 8px;
     }
 
@@ -54,7 +55,6 @@
         <li class="navbar__item"><a href="news.html" class="navbar__links">African Trending News</a></li>
         <li class="navbar__item"><a href="tv.html" class="navbar__links">Adinkra TV</a></li>
         <li class="navbar__item"><a href="about.html" class="navbar__links">About</a></li>
-       
       </ul>
     </div>
   </nav>
@@ -63,11 +63,12 @@
     <div class="hero-banner__content">
       <h1>Adinkra TV</h1>
       <p>Watch African stories come to life. From documentaries to music videos and talk shows, Adinkra TV is your visual passport to the continent.</p>
+      
       <div class="video-container">
-        <video controls>
-          <source src="assets/video/sample.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+        <iframe src="https://www.voaafrica.com/embed/player/0/8030159.html?type=video"
+                scrolling="no"
+                allowfullscreen>
+        </iframe>
       </div>
     </div>
   </section>
