@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
   <title>Radio Adinkra | Adinkra Media</title>
 
   <link rel="icon" href="images/favicon.png" type="image/png" />
@@ -157,7 +158,14 @@
           <input type="range" id="volumeControl" class="volume-slider" min="0" max="1" step="0.01" value="1" />
         </div>
 
-        <audio id="radioStream" preload="none" src="http://localhost:8000/live"></audio>
+        <!-- Audio Stream -->
+        <audio 
+          id="radioStream" 
+          preload="none" 
+          src="http://192.168.175.20:8000/live" 
+          crossorigin="anonymous" 
+          playsinline
+        ></audio>
       </div>
     </div>
   </section>
@@ -170,12 +178,16 @@
 
     let isPlaying = false;
 
-    playBtn.addEventListener("click", () => {
+    playBtn.addEventListener("click", async () => {
       if (!isPlaying) {
-        audio.play().then(() => {
+        try {
+          await audio.play();
           playBtn.textContent = "⏸️ Pause";
           isPlaying = true;
-        });
+        } catch (err) {
+          console.error("Playback failed:", err);
+          songDisplay.textContent = "Playback blocked. Tap again or check stream.";
+        }
       } else {
         audio.pause();
         playBtn.textContent = "▶️ Play";
@@ -189,13 +201,13 @@
 
     async function fetchNowPlaying() {
       try {
-        const res = await fetch("http://localhost:8000/status-json.xsl");
+        const res = await fetch("http://192.168.175.20:8000/status-json.xsl");
         const data = await res.json();
         const source = data.icestats.source;
         let title = "";
 
         if (Array.isArray(source)) {
-          const liveSource = source.find(s => s.server_name && s.listenurl.includes("/live"));
+          const liveSource = source.find(s => s.listenurl.includes("/live"));
           title = liveSource?.title || "Live Broadcast";
         } else {
           title = source.title || "Live Broadcast";
