@@ -5,19 +5,121 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Radio Adinkra | Adinkra Media</title>
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="icon" href="images/favicon.png" type="image/png" />
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="styles.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet"/>
+  <style>
+    /* Futuristic Radio Player Styles */
+    .radio-machine {
+      background: radial-gradient(circle at top left, #2C6E63, #1b3b35);
+      border: 4px solid #F8B735;
+      border-radius: 30px;
+      padding: 40px;
+      max-width: 600px;
+      margin: 60px auto;
+      box-shadow: 0 0 30px #F38218, 0 0 60px #561217 inset;
+      text-align: center;
+      position: relative;
+    }
 
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2302585712980431"
-     crossorigin="anonymous"></script>
- 
+    .radio-machine::before {
+      content: '';
+      position: absolute;
+      top: -15px;
+      left: -15px;
+      right: -15px;
+      bottom: -15px;
+      border: 4px dashed #FBE5B6;
+      border-radius: 40px;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    .machine-header {
+      font-size: 28px;
+      color: #F8B735;
+      margin-bottom: 10px;
+    }
+
+    .machine-subtitle {
+      color: #fff;
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    .radio-gauge {
+      width: 100px;
+      height: 100px;
+      border: 5px solid #FBE5B6;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      background: url('images/radio-artwork.jpg') no-repeat center/cover;
+      box-shadow: 0 0 10px #F38218;
+    }
+
+    .song-info {
+      font-size: 16px;
+      color: #fff;
+      margin: 15px 0;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #FBE5B6;
+    }
+
+    .controls {
+      margin-top: 20px;
+    }
+
+    .controls button {
+      background: #F38218;
+      color: #fff;
+      font-size: 20px;
+      padding: 14px 26px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #561217;
+      transition: background 0.3s ease;
+    }
+
+    .controls button:hover {
+      background: #561217;
+    }
+
+    .volume-wrapper {
+      margin-top: 25px;
+    }
+
+    .volume-slider {
+      width: 60%;
+      height: 6px;
+      border-radius: 4px;
+      appearance: none;
+      background: #FBE5B6;
+    }
+
+    .volume-slider::-webkit-slider-thumb {
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      background: #F8B735;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      box-shadow: 0 0 5px #F38218;
+    }
+
+    .volume-label {
+      color: #FBE5B6;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+  </style>
 </head>
 <body>
-  <!-- Navigation -->
+
+  <!-- Navbar (uses global styles.css) -->
   <nav class="navbar">
     <div class="navbar__container">
       <a href="index.html" id="navbar__logo">Adinkra Media</a>
@@ -34,35 +136,80 @@
     </div>
   </nav>
 
-  <!-- Content -->
+  <!-- Radio Machine UI -->
   <section class="hero-banner">
     <div class="hero-banner__content">
       <h1>Radio Adinkra</h1>
-      <p>Discover a powerful blend of music, culture, heritage, and education. From timeless rhythms to modern day beats, we bring you thought-provoking conversations, inspiring stories, and programs that inform, uplift, and connect Africa and it's diaspora. The Home of Culture.</p>
+      <p>Immerse yourself in the rhythm of Africa — where music, culture, and heritage merge.</p>
 
-      <!-- AdSense Ad Unit -->
-      <div style="margin: 20px auto; max-width: 728px; text-align: center;">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-2302585712980431"
-             data-ad-slot="YOUR_AD_SLOT_ID"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
+      <div class="radio-machine">
+        <div class="machine-header">Now Playing</div>
+        <div class="machine-subtitle">Live from Adinkra Studio</div>
+        <div class="radio-gauge"></div>
+        <div class="song-info" id="current-song">Loading current track...</div>
 
-      <!-- Caster.fm Embedded Player -->
-      <div class="cstrEmbed" data-type="newStreamPlayer" data-publicToken="22e25494-e3a5-44bc-83ce-e44713c69d64" data-theme="dark" data-color="6C2BDD" data-channelId="" data-rendered="false">
-        <a href="https://www.caster.fm">Shoutcast Hosting</a>
-        <a href="https://www.caster.fm">Stream Hosting</a>
-        <a href="https://www.caster.fm">Radio Server Hosting</a>
+        <div class="controls">
+          <button id="playPauseBtn">▶️ Play</button>
+        </div>
+
+        <div class="volume-wrapper">
+          <div class="volume-label">Volume</div>
+          <input type="range" id="volumeControl" class="volume-slider" min="0" max="1" step="0.01" value="1" />
+        </div>
+
+        <audio id="radioStream" preload="none" src="http://localhost:8000/live"></audio>
       </div>
-      <script src="//cdn.cloud.caster.fm//widgets/embed.js"></script>
     </div>
   </section>
 
-  <script src="app.js"></script>
+  <script>
+    const audio = document.getElementById("radioStream");
+    const playBtn = document.getElementById("playPauseBtn");
+    const volumeSlider = document.getElementById("volumeControl");
+    const songDisplay = document.getElementById("current-song");
+
+    let isPlaying = false;
+
+    playBtn.addEventListener("click", () => {
+      if (!isPlaying) {
+        audio.play().then(() => {
+          playBtn.textContent = "⏸️ Pause";
+          isPlaying = true;
+        });
+      } else {
+        audio.pause();
+        playBtn.textContent = "▶️ Play";
+        isPlaying = false;
+      }
+    });
+
+    volumeSlider.addEventListener("input", () => {
+      audio.volume = volumeSlider.value;
+    });
+
+    async function fetchNowPlaying() {
+      try {
+        const res = await fetch("http://localhost:8000/status-json.xsl");
+        const data = await res.json();
+        const source = data.icestats.source;
+        let title = "";
+
+        if (Array.isArray(source)) {
+          const liveSource = source.find(s => s.server_name && s.listenurl.includes("/live"));
+          title = liveSource?.title || "Live Broadcast";
+        } else {
+          title = source.title || "Live Broadcast";
+        }
+
+        songDisplay.textContent = title;
+      } catch (error) {
+        songDisplay.textContent = "Unable to fetch song info";
+      }
+    }
+
+    setInterval(fetchNowPlaying, 15000);
+    fetchNowPlaying();
+  </script>
+
 </body>
 </html>
