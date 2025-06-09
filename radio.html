@@ -120,7 +120,7 @@
 </head>
 <body>
 
-  <!-- Navbar (uses global styles.css) -->
+  <!-- Navbar -->
   <nav class="navbar">
     <div class="navbar__container">
       <a href="index.html" id="navbar__logo">Adinkra Media</a>
@@ -170,6 +170,7 @@
     </div>
   </section>
 
+  <!-- JS for Radio Player -->
   <script>
     const audio = document.getElementById("radioStream");
     const playBtn = document.getElementById("playPauseBtn");
@@ -221,6 +222,17 @@
 
     setInterval(fetchNowPlaying, 15000);
     fetchNowPlaying();
+  </script>
+
+  <!-- JS for Mobile Dropdown Toggle -->
+  <script>
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navMenu = document.querySelector('.navbar__menu');
+
+    mobileMenu.addEventListener('click', () => {
+      mobileMenu.classList.toggle('is-active');
+      navMenu.classList.toggle('active');
+    });
   </script>
 
 </body>
